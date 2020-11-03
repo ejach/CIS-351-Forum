@@ -1,8 +1,7 @@
 # CIS-351-Forum
-<head align = "center">
-  Talko Forum
-</head>
+
 <p align="center">
+  Talko Forum
   <img width="250" height="250" src="https://i.ibb.co/mtdWQHp/Group-24-transparent.png">
 </p>
 
