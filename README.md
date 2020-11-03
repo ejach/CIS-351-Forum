@@ -1,7 +1,7 @@
 # CIS-351-Forum
 Talko Forum
 <p align="center">
-  <img width="100" height="100" src="https://i.ibb.co/mtdWQHp/Group-24-transparent.png">
+  <img width="250" height="250" src="https://i.ibb.co/mtdWQHp/Group-24-transparent.png">
 </p>
 
 General requirements <br>
