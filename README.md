@@ -1,6 +1,8 @@
 # CIS-351-Forum
 Talko Forum
-<center><img src="https://i.ibb.co/mtdWQHp/Group-24-transparent.png" width="100" height="100"></center>
+<p align="center">
+  <img width="100" height="100" src="https://i.ibb.co/mtdWQHp/Group-24-transparent.png">
+</p>
 
 General requirements <br>
 1. The user must be able to create an account defined by at least a username and a password. <br>
