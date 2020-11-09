@@ -1,0 +1,67 @@
+body {
+  margin: 0;
+  font-family: "Lucida Console", Courier, monospace;
+}
+h3 {
+  color: white;
+  font-family: "Lucida Console", Courier, monospace;
+}
+#divider {
+  border-style: solid;
+  border-color: white;
+  background: #2f1b1b;
+  margin: auto;
+  max-width: 1000px;
+}
+
+#content {
+  margin: auto;
+  max-width: 1000px;
+}
+
+#main {
+  padding-left: 0px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.topnav {
+  overflow: hidden;
+  position: relative;
+  background-color: #2F1B1B;
+}
+
+#home {
+  float: left;
+  display: inline
+  color: white;
+  font-family: "Lucida Console", Courier, monospace;
+}
+
+#login, #register {
+  font-family: "Lucida Console", Courier, monospace;
+}
+
+.topnav a {
+  float: right;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+#logo {
+    justify-content: space-evenly;
+    float: left;
+    display: inline;
+}
