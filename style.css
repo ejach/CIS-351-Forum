@@ -6,23 +6,41 @@ h3 {
   color: white;
   font-family: "Lucida Console", Courier, monospace;
 }
+
+a{
+  color: #728cd0;
+
+}
+
+a:visited{
+  color: #c72a2a;
+}
+
 #divider {
   border-style: solid;
   border-color: white;
   background: #2f1b1b;
   margin: auto;
-  max-width: 1000px;
+  max-width: 100%;
 }
 
 #content {
-  margin: auto;
-  max-width: 1000px;
+  margin-left: 50px;
+  max-width: 100%;
+}
+
+#subtext {
+  margin-left: 50px;
+  color: gray;
+  font-size: 10px;
 }
 
 #main {
   padding-left: 0px;
-  max-width: 1000px;
+  max-width: 100%;
   margin: auto;
+  border: 1px solid #c3c3c3;
+  height: 100%;
 }
 
 .topnav {
@@ -64,4 +82,27 @@ h3 {
     justify-content: space-evenly;
     float: left;
     display: inline;
+}
+#minus {
+    justify-content: space-evenly;
+    float: right;
+    display: inline;
+    position: relative;
+    right: 2px;
+    margin-top: -21px;
+}
+
+.loginBody{
+  text-align: center;
+  font-family: "Lucida Console", Courier, monospace;
+}
+
+#login{
+  background-color: #2F1B1B;
+  color: #ffffff;
+}
+
+.Cats123{
+  width: 50%;
+  margin: auto;
 }
