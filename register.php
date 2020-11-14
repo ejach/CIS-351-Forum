@@ -1,6 +1,6 @@
 <?php
-include 'functions.php';
-include 'db-config.inc.php';
+  include 'functions.php';
+  include 'db-config.inc.php';
  ?>
 <!DOCTYPE html>
 <html>
@@ -40,9 +40,8 @@ include 'db-config.inc.php';
     <input class="input" type="password" name="npass" id="npass" placeholder="Password...">
     <br>
     <br>
-    <input type ="submit" id = "login" class="btn btn-primary btn-lg active btn-rounded" value= "REGISTER">
+    <input style="background-color:#2F1B1B;" type ="submit" class="btn btn-primary btn-lg active btn-rounded buttonStyle" value= "REGISTER">
     <br>
-
 </form>
 </body>
 </html>

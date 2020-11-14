@@ -1,6 +1,6 @@
 <?php
-session_start();
-include 'functions.php';
+  session_start();
+  include 'functions.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,7 +43,7 @@ include 'functions.php';
                 ?>
                 <br>
                 <br>
-                <input type ="submit" class="btn btn-primary btn-lg active btn-rounded login" value= "LOGIN">
+                <input style="background-color:#2F1B1B;" type ="submit" id="buttonStyle" class="btn btn-primary btn-lg active btn-rounded buttonStyle" value= "LOGIN">
                 <br>
                 <a id = "link" href = "/register.php">CREATE NEW USER</a>
             </form>

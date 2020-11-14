@@ -9,21 +9,6 @@
         return $mysqli;
     }
 
-    //This function updates the username
-    function updateUsername($name, $usern){
-        $mysqli = connect();
-        //setting up a update function then exicuting it.
-        //refreshes the page so that the user change see their change
-        if(isset($name)){
-            $sql = "UPDATE profile SET name = ? WHERE  username like ?";
-            $stmt = $mysqli->prepare($sql);
-            $stmt->bind_param("ss", $name, $usern);
-            $stmt->execute();
-            $result = $stmt->get_result();
-            refresh();
-        }
-    }
-
     //this function updates the email
     function updateEmail($email, $usern){
         $mysqli = connect();

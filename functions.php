@@ -20,24 +20,31 @@ function passwordUsername(){
   $pass = $_POST["pass"];
 
   //The if statment checks if username and password is set.
-  if(isset($usern) && isset($pass)){
-    $_SESSION['username'] = $usern;
+  if(!empty($usern) && !empty($pass)){
       //This is setting up a sql statment then setting the username and password as strings.
-      $sql = "SELECT * FROM users WHERE username LIKE ? AND password LIKE ?";
+      // $sql = "SELECT * FROM users";
+      $sql = "SELECT * FROM users WHERE username LIKE ?";
       $stmt = $mysqli->prepare($sql);
-      $stmt->bind_param("ss", $usern, $pass);
+      $stmt->bind_param("s", $usern);
+
+
       //It is now executing the statment with the user name and password and getting the result.
       $stmt->execute();
-      $hash = password_hash($pass, PASSWORD_DEFAULT);
-      
+      $result = $stmt->get_result();
+      echo $result == null;
+      $hashPass = "";
+      if ($row = $result->fetch_assoc()) {
+          $hashPass = $row["password"];
+        }
+      $correct = password_verify($pass, $hashPass);
       $_SESSION['signed_in'] = false;
-      if(password_verify($pass, $hash)) {
+      if($correct) {
         $_SESSION['signed_in'] = true;
+        $_SESSION['username'] = $usern;
           header("Location: http://talkoforum.ngrok.io/successlogin.php");
           exit();
       } else {
           print "<p style='color:red; font-size:13px; font-family:Museo Sans;'>USERNAME OR PASSWORD IS INCORRECT</p>";
-
       }
   }
 }

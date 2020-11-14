@@ -97,12 +97,12 @@ a:visited{
   font-family: "Lucida Console", Courier, monospace;
 }
 
-#login{
+.buttonStyle{
   background-color: #2F1B1B;
   color: #ffffff;
 }
+#buttonStyle{
+  background-color: #2F1B1B;
+  color: #ffffff;
 
-.Cats123{
-  width: 50%;
-  margin: auto;
 }
