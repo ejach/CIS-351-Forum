@@ -2,7 +2,7 @@
     include 'db-config.inc.php';
     function connect(){
         //Opening up a connection to the databse
-        $mysqli = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
+        $mysqli = new mysqli(DBHOST, DBUSER, DBPASSWORD, DB);
         if ($mysqli->connect_errno) {
             echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
         }
@@ -10,14 +10,14 @@
     }
 
     //this function updates the email
-    function updateEmail($email, $usern){
+    function updateEmail($email, $user){
         $mysqli = connect();
         //setting up a update function then exicuting it.
         //refreshes the page so that the user change see their change
         if(isset($email)){
-            $sql = "UPDATE profile SET email = ? WHERE  username like ?";
+            $sql = "UPDATE users SET email = ? WHERE  username like ?";
             $stmt = $mysqli->prepare($sql);
-            $stmt->bind_param("ss", $email, $usern);
+            $stmt->bind_param("ss", $email, $user);
             $stmt->execute();
             $result = $stmt->get_result();
             refresh();
@@ -25,15 +25,16 @@
     }
 
     //This function updates the password (it also checks if the passwords are the same)
-    function updatePassword($newPass, $verifyPass, $usern){
+    function updatePassword($newPass, $verifyPass, $user){
         $mysqli = connect();
         //setting up a update function then exicuting it.
         //since the user does not see the change in the text box the result will be checked.
         if($newPass === $verifyPass){
             if(isset($newPass) === isset($verifyPass)){
+              $hash = password_hash($newPass, PASSWORD_DEFAULT);
                 $sql = "UPDATE users SET password = ? WHERE  username like ?";
                 $stmt = $mysqli->prepare($sql);
-                $stmt->bind_param("ss", $newPass, $usern);
+                $stmt->bind_param("ss", $hash, $user);
                 $stmt->execute();
                 $result = $stmt->get_result();
                 checkResult($result);
@@ -69,6 +70,16 @@
     //is used to refresh the page whenever it is called
     function refresh(){
         header("Refresh:0");
+    }
+    
+    function loginBar() {
+      if($_SESSION['signed_in']) {
+            echo '<a href="signout.php">Sign out</a>'.
+            '<a href="account.php">Profile</a>';
+          } else {
+            echo '<a href="/register.php" id="register" draggable="false">Register</a>'
+            . '<a href="/login.php" id="login" draggable="false">Login</a>';
+          }
     }
 
 ?>
