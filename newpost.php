@@ -1,3 +1,8 @@
+<?php session_start();
+include 'db-config.inc.php';
+include 'functions.php';
+$mysqli = connect();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,25 +19,30 @@
         <img src="logo.png" width="45" height="45" draggable="false" alt="logo">
       </div>
     <a href="/" id="home" draggable="false">Talko Forum</a>
-    <a href="/register.php" id="register" draggable="false">Register</a>
-    <a href="/login.php" id="login" draggable="false">Login</a>
+    <?php loginBar(); ?>
   </div>
   <div class="Cats123" >
-    <form method = "post" action = "login.php">
-      <label>Title:</label> <br>
-      <textarea id="title" name="title" rows="1" cols="50">
-
-      </textarea>
-      <br>
-      <label for="post_content">Message:</label>
-      <br>
-      <textarea id="post_content" name="content" rows="4" cols="50">
-
-      </textarea>
-      <br>
-      <br>
-      <input type="submit" class="btn btn-primary btn-lg active btn-rounded login" value="POST">
-    </form>
+    <form method = "post" action = "post.php" style="font-family: "Lucida Console", Courier, monospace;">
+      <?php
+      if($_SESSION['signed_in'])
+      {
+        echo '<label>Title:</label> <br>
+        <textarea id="title" for="post_title" name="title" rows="1" cols="50">
+        </textarea>
+        <br>
+        <label id="post_content">Message:</label>
+        <br>
+        <textarea for="post_content" name="content" rows="4" cols="50">
+        </textarea>
+        <br>
+        <br>
+        <input style="background-color:#2F1B1B;" type ="submit" id="buttonStyle" class="btn btn-primary btn-lg active btn-rounded buttonStyle" value= "POST">
+        ';
+      } else {
+        echo 'You must be <a href="/login.php">signed in</a> to create a post.';
+      }
+      ?>
+      </form>
   </div>
 </body>
 </html>

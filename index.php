@@ -16,24 +16,51 @@ include 'functions.php'; ?>
         <img src="logo.png" width="45" height="45" draggable="false">
       </div>
     <a href="/" id="home" draggable="false">Talko Forum</a>
-    <?php
-    if($_SESSION['signed_in']) {
-          echo '<a href="signout.php">Sign out</a>';
-        } else {
-          echo '<a href="/register.php" id="register" draggable="false">Register</a>'
-          . '<a href="/login.php" id="login" draggable="false">Login</a>';
-        }
-    ?>
+    <?php loginBar(); ?>
   </div>
   <div id="main">
     <h2>Talko Forum</h2>
-    <?php
-    if ($_SESSION['signed_in']) {
-      echo '<p id="welcome">Welcome ' . $_SESSION['username'] . '.</p><br>';
-    } else {
-      echo '<p id="welcome">Welcome unknown user! Please <a href="/login.php">sign in</a> or <a href="/register.php">create an account.</a></p><br>';
-    }
-    ?>
+    <?php welcomeBar(); ?>
+    <!-- forum search box -->
+    <style>
+      #country-list{list-style:none;margin-top:-3px;position: absolute; top:40px; left:190px;}
+      #country-list li{padding: 10px; background: #f0f0f0; border-bottom: #bbb9b9 1px solid;}
+      #country-list li:hover{background:#ece3d2;cursor: pointer;}
+      #search-box{padding: 10px;border:#2F1B1B 1px solid;}
+      </style>
+      <script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
+      <script>
+      $(document).ready(function(){
+      	$("#search-box").keyup(function(){
+      		$.ajax({
+      		type: "GET",
+      		url: "readPostName.php",
+      		data:'keyword='+$(this).val(),
+      		success: function(data){
+      			$("#suggesstion-box").show();
+      			$("#suggesstion-box").html(data);
+      			$("#search-box").css("background","#FFF");
+      		}
+      		});
+      	});
+      });
+
+      function selectPost(val, id) {
+        $("#search-box").val(val);
+        $("#suggesstion-box").hide();
+      }
+    </script>
+    <div class="frmSearch">
+      <form action="redirect.php" method="GET">
+      <div style="position:relative;">
+        <label class="label" for="searchBox">Search for a post here:</label>
+        <input type="text" id="search-box" autocomplete="off" placeholder="Post Topic" />
+        <div id="suggesstion-box"></div>
+        <input type="submit" style="background-color:#2F1B1B; height:36px; width: 60px; border-radius:8px; position:absolute; top:1px; left:400px" class="buttonStyle" value="GO!">
+      <div>
+    </form>
+    </div>
+    <!-- post suggestions -->
     <div class="container">
       <h3 id="divider">General</h3>
       <input type="image"  id="minus" src="minus.png" class="collapsible"  alt="Submit Form" />
@@ -54,20 +81,8 @@ include 'functions.php'; ?>
       <br><i id="subtext">Can't find a topic? Post it here!</id>
     </div>
     <footer id="footer" style="position: absolute; text-align: center; bottom: 0; width: 100%; height: 2.5rem;">
-    <?php
-    if ($_SESSION['signed_in']) {
-      echo "<a href='/'>Home</a>|<a href='/signout.php'>Sign Out</a>";
-    } else {
-      echo "<a href='/'>Home</a>|<a href='/login.php'>Login</a>|<a href='/register.php'>Register</a>";
-    }
-    ?>
+    <?php footerBar();?>
     </footer>
   </div>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var elems = document.querySelectorAll('#minus');
-      var instances = M.Collapsible.init(elems, options);
-    });
-</script>
 </body>
 </html>
