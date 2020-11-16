@@ -16,7 +16,7 @@ $mysqli = connect();
 <body>
   <div class="topnav">
     <div class="topnav-img" id="logo">
-        <img src="logo.png" width="45" height="45" draggable="false">
+        <img src="logo.png" width="45" height="45" draggable="false" alt="logo">
       </div>
     <a href="/" id="home" draggable="false">Talko Forum</a>
     <?php loginBar(); ?>
