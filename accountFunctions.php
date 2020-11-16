@@ -31,10 +31,10 @@
         //since the user does not see the change in the text box the result will be checked.
         if($newPass === $verifyPass){
             if(isset($newPass) === isset($verifyPass)){
-              // $hash = password_hash($newPass, PASSWORD_DEFAULT);
+                $hash = password_hash($newPass, PASSWORD_DEFAULT);
                 $sql = "UPDATE users SET password = ? WHERE  username like ?";
                 $stmt = $mysqli->prepare($sql);
-                $stmt->bind_param("ss", $newPass, $user);
+                $stmt->bind_param("ss", $hash, $user);
                 $stmt->execute();
                 $result = $stmt->get_result();
                 checkResult($result);
