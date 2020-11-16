@@ -3,7 +3,7 @@
   include 'db-config.inc.php';
  ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="style.css" rel="stylesheet" type="text/css"/>
@@ -16,7 +16,7 @@
 <body class="loginBody">
   <div class="topnav">
     <div class="topnav-img" id="logo">
-        <img src="logo.png" width="45" height="45" draggable="false">
+        <img src="logo.png" width="45" height="45" draggable="false" alt="logo">
       </div>
     <a href="/" id="home" draggable="false">Talko Forum</a>
     <a href="#register" id="register" draggable="false">Register</a>
@@ -36,7 +36,7 @@
     <input class="input" type="text" name="usern" id="usern" placeholder="Username...">
     <br>
     <br>
-    <label class="label" for="pass">PASSWORD</label>
+    <label class="label" for="npass">PASSWORD</label>
     <input class="input" type="password" name="npass" id="npass" placeholder="Password...">
     <br>
     <br>
